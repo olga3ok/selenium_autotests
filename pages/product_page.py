@@ -32,7 +32,13 @@ class ProductPage(BasePage):
 
     def should_be_message(self):
         message = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE).text
-        assert self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Successful add to cart message is not presented"
+        assert self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not presented"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be "
+
+    def should_dissapeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not dissapeared, but should be"
 
     def should_be_correct_product_title(self, product_title):
         title_in_cart = self.browser.find_element(*ProductPageLocators.TITLE_IN_CART).text
