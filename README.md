@@ -1,1 +1,1 @@
-selenium authotests course
+selenium_autotests course
